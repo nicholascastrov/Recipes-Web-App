@@ -35,7 +35,7 @@ res.render('recipes/create-recipes.hbs')
 router.post('/create-recipes', isLoggedIn, (req, res, next) => {
     const {title, cuisine, image, ingredients, dishType, duration, level} = req.body
 
-    let formattedIngredients = ingredients.replace(',', '').split(' ')
+    let formattedIngredients = ingredients.replace(',', '').split(" ")
 
     Recipe.create(
     {
@@ -73,12 +73,7 @@ router.get('/edit-recipes/:id', isOwner, (req, res, next) => {
 router.post('/edit-recipes/:id', (req, res, next) => {
 
     const { title, cuisine, image, ingredients, dishType, duration, level } = req.body
-    console.log(ingredients, "Ingredients Editted")
-
-    // let formattedIngredients = ingredients.replace(/,/g, ', ').split(" ")
-    let formattedIngredients = ingredients.join(',').split(',')
-    console.log(formattedIngredients)
-
+    
     Recipe.findByIdAndUpdate(req.params.id, 
         {
             image,
