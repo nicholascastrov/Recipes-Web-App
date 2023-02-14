@@ -1,0 +1,16 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/recipes/create-recipes">Create a Recipe</a>
+</nav>
+<h1>Recipes</h1>
+
+{{#each recipes}}
+
+<h3>{{title}}</h3>
+<img src="{{image}}" alt="{{title}}">
+<a href="/recipes/recipe-details/{{_id}}">Details</a>
+<p>By: {{creator}}</p>
+
+
+
+{{/each}}

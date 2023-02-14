@@ -1,0 +1,50 @@
+<nav>
+    <a href="/recipes/all-recipes">Back</a>
+</nav>
+<h2>Add New Recipe</h2>
+
+<form action="/recipes/create-recipes" method="POST">
+
+<label for="">Title</label>
+<input type="text" name="title">
+
+<label for="">Ingredients</label>
+<input type="text" name="ingredients">
+
+<label for="">Image</label>
+<input type="text" name="image">
+
+<label for="">Cuisine</label>
+<input type="text" name="cuisine">
+
+<label for="">Dish Type:</label>
+    <select type="text" name="dishType">
+        <option value='breakfast'>Breakfast</option>
+        <option value='main_course'>Main Course</option>
+        <option value='soup'>Soup</option>
+        <option value='snack'>Snack</option>
+        <option value='drink'>Drink</option>
+        <option value='dessert'>Dessert</option>
+        <option value='other'>Other</option>
+    </select>
+
+<label for="">Duration</label>
+<input type="text" name="duration">
+
+<label for="">Level</label>
+    <select type="text" name="level">
+        <option value='Easy Peasy'>Easy</option>
+        <option value='Amateur Chef'>Amateur</option>
+        <option value='UltraPro Chef'>Pro</option>
+    </select>
+
+
+<button type="submit">Add Recipe</button> 
+
+</form> 
+
+{{!-- level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']}, --}}
+{{!-- const {title, image, ingredients, cuisine, dishType, duration, creator} = req.body --}}
+
+{{!-- 
+'breakfast', 'main_course', 'soup', 'snack', 'drink', 'dessert', 'other' --}}

@@ -1,2 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<nav>
+     <a href="/users/signup">Sign Up</a>
+      <a href="/users/login">Login</a>
+      <a href="/recipes/all-recipes">Recipes</a>
+      <a href="/users/logout">Logout</a>
+</nav>
+
+<h1>A Cooks Companion</h1>
+<h2>Get cooking!</h2>
+
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+{{/if}}
+
+
+{{#each recipes}}
+
+<h3>{{title}}</h3>
+<img src="{{image}}" alt="{{title}}">
+<a href="/recipes/recipe-details/{{_id}}">Details</a>
+<p>By: {{creator}}</p>
+
+
+
+{{/each}}

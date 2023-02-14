@@ -1,0 +1,22 @@
+<nav>
+    <a href="/recipes/all-recipes">Recipes</a>
+    <a href="/">Home</a>
+</nav>
+
+<h2>Login</h2>
+
+<form action="/users/login" method="post">
+
+<label for="">Email</label>
+<input type="email" name="email">
+
+<label for="">Password</label>
+<input type="password" name="password">
+
+<button type="submit">Login</button>
+
+{{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+{{/if}}
+
+</form>

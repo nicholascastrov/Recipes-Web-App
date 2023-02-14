@@ -1,0 +1,63 @@
+<a href="/recipes/all-recipes">Recipes</a>
+
+<h1>{{title}}</h1>
+<img src="{{image}}" alt="{{title}}">
+<h2>Written by: {{creator}}</h2>
+<hr>
+<b>Ingredients:</b> 
+<ul> 
+    {{#each ingredients}}
+    <li>
+        <p>{{this}}</p>
+    </li>
+    {{/each}}
+</ul>
+<p> <b>Duration:</b> {{duration}} Minutes</p>
+<p> <b>Recipe Difficulty:</b> {{level}}</p>
+<p> <b>Type of Dish:</b> {{dishType}}</p>
+<hr>
+
+<form action="/recipes/add-review/{{_id}}" method="post">
+    <label for="">New Comment</label>
+    <input type="text" name="comment">
+
+    <button type="submit">Add Comment</button>
+
+</form>
+
+{{#if reviews}}
+
+    <ul>
+
+    {{#each reviews}}
+
+        <li>
+            <p>{{comment}}</p>
+            <h6>-{{user.username}}</h6>
+        </li>
+
+    {{/each}}
+
+    </ul>
+
+{{else}}
+
+    <p>No Reviews yet</p>
+
+{{/if}}
+
+<a href="/recipes/all-recipes">Recipes</a>
+<a href="/recipes/edit-recipes/{{_id}}">Edit Recipe</a>
+<a href="/recipes/delete/{{_id}}">Delete Recipe</a>
+
+
+
+    {{!-- title: {type: String, required: true, unique: true},
+    level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']},
+    ingredients: {type: [String]},
+    cuisine: {type: String, required: true},
+    dishType: {type: String, enum: ['breakfast', 'main_course', 'soup', 'snack', 'drink', 'dessert', 'other']},
+    image: {type: String, default: "https://images.media-allrecipes.com/images/75131.jpg" },
+    duration: {type: Number, min: 0},
+    creator : {type: String},
+    created: {type: Date, default: Date.now} --}}
