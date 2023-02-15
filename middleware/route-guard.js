@@ -21,6 +21,26 @@ next();
 };
 
 const isOwner = (req, res, next) => {
+
+    Recipe.findById(req.params.id)
+    // .populate('creator')
+    .then((foundRecipe) => {
+        console.log(foundRecipe._id, "HHHHHHEEEELLLLOOOOO")
+        console.log(foundRecipe.creator)
+        // console.log(req.session.user._id)
+        if (!req.session.user || req.session.user.username !== foundRecipe.creator) {
+            res.render('index.hbs', {errorMessage: "You are not authorized."})
+        } else {
+            next()
+        }
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+}
+
+const isCommentOwner = (req, res, next) => {
     console.log(req.params)
     console.log(req.params.id)
     Comment.findById(req.params.id)
@@ -60,4 +80,5 @@ module.exports = {
 isLoggedIn,
 isLoggedOut,
 isOwner,
+isCommentOwner
 };

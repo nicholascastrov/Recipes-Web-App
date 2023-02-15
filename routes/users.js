@@ -12,6 +12,22 @@ const User = require('../models/User.model')
 
 /* GET users listing. */
 
+router.get('/my-profile/profile/:id', (req, res, next) => {
+  return User.findById(req.params.id)
+  .then((user) => {
+    console.log(user)
+    return Recipe.find({creator: user.username})
+    .then((foundRecipes) => {
+      console.log(foundRecipes)
+      res.render('users/profile.hbs', {user: user, foundRecipes: foundRecipes})
+    })
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  
+})
+
 router.get('/profile/:creator', (req, res, next) => {
   console.log(req.params.creator)
   Recipe.find(

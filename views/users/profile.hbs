@@ -1,6 +1,15 @@
 <h1>Profile</h1>
 
+{{#each foundRecipes}}
 <h2>{{creator}}</h2>
+
+<h3>{{title}}</h3>
+<img src="{{image}}" alt="{{title}}">
+<a href="/recipes/recipe-details/{{_id}}">Details</a>
+
+<p>By: {{creator}}</p>
+
+{{/each}}
 
 <nav>
     <a href="/recipes/all-recipes">Recipes</a>

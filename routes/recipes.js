@@ -3,7 +3,7 @@ var router = express.Router();
 
 const fileUploader = require('../config/cloudinary.config');
 
-const { isLoggedIn, isOwner, isNotOwner } = require('../middleware/route-guard')
+const { isLoggedIn, isOwner, isCommentOwner } = require('../middleware/route-guard')
 
 const Recipe = require('../models/Recipe.model')
 const Comment = require('../models/Comment.model')
@@ -11,7 +11,11 @@ const Comment = require('../models/Comment.model')
 router.get('/all-recipes', (req, res, next) => {
     Recipe.find()
     .then((foundRecipe) => {
-        res.render('recipes/all-recipes.hbs', { recipes: foundRecipe });
+        if(req.session.user){
+            res.render('recipes/all-recipes.hbs', { recipes: foundRecipe, id: req.session.user._id });
+        } else {
+            res.render('recipes/all-recipes.hbs', { recipes: foundRecipe});
+        }
     })
     .catch((err) => {
         console.log(err)
@@ -110,7 +114,7 @@ router.post('/edit-recipes/:id', (req, res, next) => {
 router.get('/delete-recipe/:id', isOwner, (req, res, next) => {
     Recipe.findByIdAndDelete(req.params.id)
     .then((deletedRecipe) => {
-        res.redirect('/recipes/all-recipes', deletedRecipe)
+        res.redirect('/recipes/all-recipes')
     })
 })
 
@@ -138,24 +142,42 @@ router.post('/add-comment/:id', isLoggedIn, (req, res, next) => {
     })
 })
 
-
-router.get('/delete-comment/:id', isOwner, (req, res, next) => {
+router.get('/delete-comment/:id', isCommentOwner, (req, res, next) => {
     Comment.findByIdAndDelete(req.params.id)
     .then((deletedComment) => {
         console.log(deletedComment)
-        // return Comment.findByIdAndDelete(req.params.id,
-        // {
-        //     $pop: {comments: deletedComment._id}
-        // },
-        // {new: true})
+        return Recipe.findOneAndUpdate(
+            {comments: req.params.id}, 
+            {$pull: {comments: req.params.id}}, 
+            {new: true})
     })
-    // .then((recipeWithDeletedComment) => {
-    //     res.redirect(`/recipes/recipe-details/${req.params.id}`, recipeWithDeletedComment)    
-    // })
+    .then((updatedRecipe) => {
+        console.log(updatedRecipe)
+        res.redirect(`/recipes/recipe-details/${updatedRecipe._id}`)   
+    })
     .catch((err) => {
         console.log(err)
     })
 })
+
+
+// router.get('/delete-comment/:id', isCommentOwner, (req, res, next) => {
+//     Comment.findByIdAndDelete(req.params.id)
+//     .then((deletedComment) => {
+//         console.log(deletedComment)
+//         // return Comment.findByIdAndDelete(req.params.id,
+//         // {
+//         //     $pop: {comments: deletedComment._id}
+//         // },
+//         // {new: true})
+//     })
+//     // .then((recipeWithDeletedComment) => {
+//     //     res.redirect(`/recipes/recipe-details/${req.params.id}`, recipeWithDeletedComment)    
+//     // })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+// })
 
 
 
