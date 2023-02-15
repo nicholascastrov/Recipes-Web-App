@@ -1,6 +1,6 @@
 <h2>Edit Recipe</h2>
 
-<form action="/recipes/edit-recipes/{{_id}}" method="POST">
+<form action="/recipes/edit-recipes/{{_id}}" method="POST"> >
 
 <label for="">Title</label>
 <input type="text" value="{{title}}" name="title">
@@ -9,7 +9,7 @@
 <input type="text" value={{ingredients}} name="ingredients">
 
 <label for="">Image</label>
-<input type="text" value={{image}} name="image">
+<input type="file" value={{image}} name="image">
 
 <label for="">Cuisine</label>
 <input type="text" value={{cuisine}} name="cuisine">

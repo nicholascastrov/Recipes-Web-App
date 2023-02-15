@@ -7,9 +7,25 @@ const bcryptjs = require('bcryptjs');
 
 const saltRounds = 10;
 
+const Recipe = require('../models/Recipe.model')
 const User = require('../models/User.model')
 
 /* GET users listing. */
+
+router.get('/profile/:creator', (req, res, next) => {
+  console.log(req.params.creator)
+  Recipe.find(
+    {
+      creator:req.params.creator
+    })
+    .then((foundRecipes) =>{
+      res.render('users/profile.hbs', {recipes: foundRecipes})
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
+
 router.get('/signup',(req, res, next) => {
   res.render('users/signup.hbs');
 });

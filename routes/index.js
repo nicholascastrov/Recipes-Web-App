@@ -6,14 +6,9 @@ const Recipe = require('../models/Recipe.model')
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  // res.render('index.hbs');
-  Recipe.find()
-  .then((foundRecipe) => {
-    res.render('index.hbs', { recipes: foundRecipe });
-  })
-  .catch((err) => {
-      console.log(err)
-  })
+  res.render('index.hbs');
 });
+
+
 
 module.exports = router;

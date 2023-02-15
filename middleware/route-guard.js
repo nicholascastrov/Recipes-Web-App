@@ -1,6 +1,7 @@
 // middleware/route-guard.js
 
 const Recipe = require('../models/Recipe.model')
+const Comment = require('../models/Comment.model')
 
 // checks if the user is logged in when trying to access a specific page
 const isLoggedIn = (req, res, next) => {
@@ -20,11 +21,13 @@ next();
 };
 
 const isOwner = (req, res, next) => {
-
-    Recipe.findById(req.params.id)
+    console.log(req.params)
+    console.log(req.params.id)
+    Comment.findById(req.params.id)
     // .populate('creator')
     .then((foundRecipe) => {
-        if (!req.session.user || req.session.user.username !== foundRecipe.creator) {
+        console.log(foundRecipe, "😃")
+        if (!req.session.user || req.session.user.username !== foundRecipe.user) {
             res.render('index.hbs', {errorMessage: "You are not authorized."})
         } else {
             next()
@@ -36,26 +39,25 @@ const isOwner = (req, res, next) => {
 
 }
 
-const isNotOwner = (req, res, next) => {
+// const isNotOwner = (req, res, next) => {
 
-    Recipe.find(req.params)
-    .populate('creator')
-    .then((foundRecipe) => {
-        if (!req.session.user || foundRecipe.creator === req.session.user) {
-            res.render('index.hbs', {errorMessage: "You can't review your own room."})
-        } else {
-            next()
-        }
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+//     Recipe.find(req.params)
+//     .populate('creator')
+//     .then((foundRecipe) => {
+//         if (!req.session.user || foundRecipe.creator === req.session.user) {
+//             res.render('index.hbs', {errorMessage: "You can't review your own room."})
+//         } else {
+//             next()
+//         }
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
 
-}
+// }
 
 module.exports = {
 isLoggedIn,
 isLoggedOut,
 isOwner,
-isNotOwner
 };

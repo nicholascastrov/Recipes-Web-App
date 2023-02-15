@@ -9,7 +9,8 @@ const recipeSchema = new Schema({
     image: String,
     duration: {type: Number, min: 0},
     creator : String,
-    created: {type: Date, default: Date.now}
+    created: {type: Date, default: Date.now},
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
   },
   {
     timestamps: true

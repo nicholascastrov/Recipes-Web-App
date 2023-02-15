@@ -3,7 +3,7 @@
 </nav>
 <h2>Add New Recipe</h2>
 
-<form action="/recipes/create-recipes" method="POST">
+<form action="/recipes/create-recipes" method="POST" enctype="multipart/form-data">
 
 <label for="">Title</label>
 <input type="text" name="title">
@@ -12,7 +12,7 @@
 <input type="text" name="ingredients">
 
 <label for="">Image</label>
-<input type="text" name="image">
+<input type="file" name="image">
 
 <label for="">Cuisine</label>
 <input type="text" name="cuisine">

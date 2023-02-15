@@ -7,7 +7,7 @@ const Recipe = require('./models/Recipe.model')
 const MONGO_URI = process.env.MONGODB_URI;
 
 const recipes = [
-    {
+  {
     title: "Asian Glazed Chicken Thighs",
     level: "Amateur Chef",
     ingredients: [

@@ -17,7 +17,7 @@
 <p> <b>Type of Dish:</b> {{dishType}}</p>
 <hr>
 
-<form action="/recipes/add-review/{{_id}}" method="post">
+<form action="/recipes/add-comment/{{_id}}" method="post">
     <label for="">New Comment</label>
     <input type="text" name="comment">
 
@@ -25,15 +25,17 @@
 
 </form>
 
-{{#if reviews}}
+{{#if comments}}
 
     <ul>
 
-    {{#each reviews}}
+    {{#each comments}}
 
         <li>
             <p>{{comment}}</p>
-            <h6>-{{user.username}}</h6>
+            <h6>{{user}}</h6>
+            <a href="/recipes/delete-comment/{{_id}}">Delete</a>
+            <hr>
         </li>
 
     {{/each}}
@@ -48,7 +50,7 @@
 
 <a href="/recipes/all-recipes">Recipes</a>
 <a href="/recipes/edit-recipes/{{_id}}">Edit Recipe</a>
-<a href="/recipes/delete/{{_id}}">Delete Recipe</a>
+<a href="/recipes/delete-recipe/{{_id}}">Delete Recipe</a>
 
 
 

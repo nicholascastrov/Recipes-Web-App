@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+const fileUploader = require('../config/cloudinary.config');
+
 const { isLoggedIn, isOwner, isNotOwner } = require('../middleware/route-guard')
 
 const Recipe = require('../models/Recipe.model')
-const Review = require('../models/Review.model')
+const Comment = require('../models/Comment.model')
 
 router.get('/all-recipes', (req, res, next) => {
     Recipe.find()
@@ -18,7 +20,9 @@ router.get('/all-recipes', (req, res, next) => {
 
 router.get('/recipe-details/:id', (req, res, next) => {
     Recipe.findById(req.params.id)
+    .populate('comments')
     .then((foundRecipe) => {
+        console.log(foundRecipe)
         res.render('recipes/recipe-details.hbs', foundRecipe)
     })
     .catch((err) => {
@@ -26,23 +30,26 @@ router.get('/recipe-details/:id', (req, res, next) => {
     })
 })
 
-router.get('/create-recipes', isLoggedIn,  (req, res, next) => {
+router.get('/create-recipes', isLoggedIn, (req, res, next) => {
 
 res.render('recipes/create-recipes.hbs')
 
 })
 
-router.post('/create-recipes', isLoggedIn, (req, res, next) => {
-    const {title, cuisine, image, ingredients, dishType, duration, level} = req.body
+router.post('/create-recipes', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
+    const {title, cuisine, ingredients, dishType, duration, level} = req.body
 
-    let formattedIngredients = ingredients.replace(',', '').split(" ")
+    const newArray = ingredients.split(",");
+    const newest = newArray.map((item) => {
+        return item.trim("");
+     });
 
     Recipe.create(
     {
-        image,
+        image: req.file.path,
         title,
         duration,
-        ingredients: formattedIngredients,
+        ingredients: newest,
         cuisine,
         dishType,
         level,
@@ -62,6 +69,7 @@ router.get('/edit-recipes/:id', isOwner, (req, res, next) => {
     const id = req.params.id
     Recipe.findById(id)
     .then((foundRecipe) => {
+        console.log(foundRecipe,"found")
         res.render('recipes/edit-recipes.hbs', foundRecipe)
     })
     .catch((err) => {
@@ -73,13 +81,18 @@ router.get('/edit-recipes/:id', isOwner, (req, res, next) => {
 router.post('/edit-recipes/:id', (req, res, next) => {
 
     const { title, cuisine, image, ingredients, dishType, duration, level } = req.body
-    
+
+    const newArray = ingredients.split(",");
+    const newest = newArray.map((item) => {
+        return item.trim("");
+     });
+
     Recipe.findByIdAndUpdate(req.params.id, 
         {
             image,
             title,
             duration,
-            ingredients,
+            ingredients: newest,
             cuisine,
             dishType,
             level,
@@ -94,35 +107,58 @@ router.post('/edit-recipes/:id', (req, res, next) => {
     })
 })
 
-router.get('/delete/:id', isOwner, (req, res, next) => {
+router.get('/delete-recipe/:id', isOwner, (req, res, next) => {
     Recipe.findByIdAndDelete(req.params.id)
     .then((deletedRecipe) => {
-        res.redirect('/recipes/all-recipes')
+        res.redirect('/recipes/all-recipes', deletedRecipe)
     })
 })
 
-router.post('/add-review/:id', (req, res, next) => {
-    console.log(req.params.id, "HOLAAAAAA")
-    Review.create({
-        user: req.session.user,
+router.post('/add-comment/:id', isLoggedIn, (req, res, next) => {
+    console.log(req.session.user, "HOLAAAAAA")
+    Comment.create({
+        user: req.session.user.username,
         comment: req.body.comment
     })
-    .then((newReview) => {
-        console.log(newReview)
+    .then((newComment) => {
+        console.log(newComment)
         return Recipe.findByIdAndUpdate(req.params.id,
         {
-            $push: {reviews: newReview._id}
+            $push: {comments: newComment._id}
         },
         {new: true})
     })
     .then((recipeWithReview) => {
-        console.log(recipeWithReview)
+
+        console.log(recipeWithReview, "klkkkkkkkkkkk")
         res.redirect(`/recipes/recipe-details/${req.params.id}`)
     })
     .catch((err) => {
         console.log(err)
     })
 })
+
+
+router.get('/delete-comment/:id', isOwner, (req, res, next) => {
+    Comment.findByIdAndDelete(req.params.id)
+    .then((deletedComment) => {
+        console.log(deletedComment)
+        // return Comment.findByIdAndDelete(req.params.id,
+        // {
+        //     $pop: {comments: deletedComment._id}
+        // },
+        // {new: true})
+    })
+    // .then((recipeWithDeletedComment) => {
+    //     res.redirect(`/recipes/recipe-details/${req.params.id}`, recipeWithDeletedComment)    
+    // })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+
+
 
 
 

@@ -1,10 +1,11 @@
-<nav>
-    <a href="/">Home</a>
-    <a href="/recipes/create-recipes">Create a Recipe</a>
-    <a href="/users/profile">Profile</a>
-</nav>
+<h1>Profile</h1>
 
-<h1>Recipes</h1>
+<h2>{{creator}}</h2>
+
+<nav>
+    <a href="/recipes/all-recipes">Recipes</a>
+    <a href="/recipes/create-recipes">Create a Recipe</a>
+</nav>
 
 {{#each recipes}}
 
@@ -12,7 +13,7 @@
 <img src="{{image}}" alt="{{title}}">
 <a href="/recipes/recipe-details/{{_id}}">Details</a>
 
-<a href="/users/profile/{{creator}}"><p>By: {{creator}}</p></a>
+<p>By: {{creator}}</p>
 
 
 

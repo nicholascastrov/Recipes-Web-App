@@ -11,15 +11,3 @@
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
 {{/if}}
-
-
-{{#each recipes}}
-
-<h3>{{title}}</h3>
-<img src="{{image}}" alt="{{title}}">
-<a href="/recipes/recipe-details/{{_id}}">Details</a>
-<p>By: {{creator}}</p>
-
-
-
-{{/each}}
