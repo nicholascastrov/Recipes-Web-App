@@ -1,65 +1,167 @@
-<a href="/recipes/all-recipes">Recipes</a>
+<nav class="details-nav">
 
-<h1>{{title}}</h1>
-<img src="{{image}}" alt="{{title}}">
-<h2>By: {{creator}}</h2>
-<hr>
-<b>Ingredients:</b> 
-<ul> 
-    {{#each ingredients}}
-    <li>
-        <p>{{this}}</p>
-    </li>
-    {{/each}}
-</ul>
-<p> <b>Duration:</b> {{duration}} Minutes</p>
-<p> <b>Recipe Difficulty:</b> {{level}}</p>
-<p> <b>Type of Dish:</b> {{dishType}}</p>
-<hr>
+    <div class="details-nav-left">
 
-<form action="/recipes/add-comment/{{_id}}" method="post">
-    <label for="">New Comment</label>
-    <input type="text" name="comment">
+        <a href="/">
 
-    <button type="submit">Add Comment</button>
+            <ul class="details-ul">
 
-</form>
+                <li>
 
-{{#if comments}}
+                    <h1>Cooks Companion</h1>
 
-    <ul>
+                </li>
 
-    {{#each comments}}
+            </ul>
 
-        <li>
-            <p>{{comment}}</p>
-            <h6>{{user}}</h6>
-            <a href="/recipes/delete-comment/{{_id}}">Delete</a>
-            <hr>
-        </li>
+        </a>
 
-    {{/each}}
+    </div>
 
-    </ul>
+    <div class="details-nav-right">
 
-{{else}}
+        <a href="/recipes/all-recipes">Recipes</a>
 
-    <p>No Reviews yet</p>
+    </div>
 
-{{/if}}
-
-<a href="/recipes/all-recipes">Recipes</a>
-<a href="/recipes/edit-recipes/{{_id}}">Edit Recipe</a>
-<a href="/recipes/delete-recipe/{{_id}}">Delete Recipe</a>
+</nav>
 
 
 
-    {{!-- title: {type: String, required: true, unique: true},
-    level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']},
-    ingredients: {type: [String]},
-    cuisine: {type: String, required: true},
-    dishType: {type: String, enum: ['breakfast', 'main_course', 'soup', 'snack', 'drink', 'dessert', 'other']},
-    image: {type: String, default: "https://images.media-allrecipes.com/images/75131.jpg" },
-    duration: {type: Number, min: 0},
-    creator : {type: String},
-    created: {type: Date, default: Date.now} --}}
+<hr class="hr">
+
+
+<div class="details-main">
+
+    <div class="details-main-box">
+
+        <div class="recipe-main-view">
+
+            <h1>{{title}}</h1>
+            <h2>By: {{creator}}</h2>
+            <img src="{{image}}" alt="{{title}}">
+
+        </div>
+
+        <hr>
+
+        <div class="recipe-details-facts">
+
+            <h4>Recipe Facts:</h4>
+
+            <p> 
+                <b>Duration:</b> {{duration}} Minutes
+            </p>
+
+            <p> 
+                <b>Recipe Difficulty:</b> {{level}}
+            </p>
+
+            <p> 
+                <b>Type of Dish:</b> {{dishType}}
+            </p>
+
+        </div>
+
+        <div class="recipe-details-info">
+
+            <div class="recipe-details-ingredients">
+
+                <b>Ingredients:</b> 
+                <ul> 
+                    {{#each ingredients}}
+                    <li>
+                        <p>{{this}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+
+            <div class="recipe-details-directions">
+
+                <b>Directions:</b> 
+                <ol> 
+                    {{#each directions}}
+                    <li>
+                        <p>{{this}}</p>
+                    </li>
+                    {{/each}}
+                </ol>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+
+        <div class="details-comment-form">
+
+            <form action="/recipes/add-comment/{{_id}}" method="post">
+
+                <div class="details-comment-box">
+
+                    <label for="">New Comment</label>
+                    <input type="text" name="comment">
+
+                </div>
+
+                <div class="comment-btn">
+
+                    <button type="submit">Add Comment</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="details-comment-section">
+
+
+            {{#if comments}}
+
+                <ul class="all-comments">
+
+                    {{#each comments}}
+
+                        <div class="each-comment-list">
+
+                            <li>
+                                <p>{{comment}}</p>
+                                <h6>{{user}}</h6>
+                                <a href="/recipes/delete-comment/{{_id}}">Delete</a>
+                                <hr>
+                            </li>
+
+                        </div>
+
+                    {{/each}}
+
+                </ul>
+
+            {{else}}
+
+                <div class="no-comment-view">
+
+                    <p>No Reviews yet</p>
+
+                </div>
+
+            {{/if}}
+        
+        </div>
+
+        <div class="recipe-details-links">
+
+            <a href="/recipes/all-recipes">Recipes</a>
+            <a href="/recipes/edit-recipes/{{_id}}">Edit Recipe</a>
+            <a href="/recipes/delete-recipe/{{_id}}">Delete Recipe</a>
+
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,12 +1,62 @@
-<nav>
-     <a href="/users/signup">Sign Up</a>
-      <a href="/users/login">Login</a>
-      <a href="/recipes/all-recipes/{{_id}}">Recipes</a>
-      <a href="/users/logout">Logout</a>
+<nav class="index-nav">
+
+    <div class="index-nav-left">
+
+        <a href="/">
+
+            <h1>Cooks Companion</h1>
+
+        </a>
+
+    </div>
+
+    <div class="index-nav-right">
+
+        <ul class="index-ul">
+
+            <li>
+            <a href="/users/signup">Sign Up</a>
+            </li>
+
+            <li>
+            <a href="/users/login">Login</a>
+            </li>
+
+            <li>
+            <a href="/recipes/all-recipes/{{_id}}">Recipes</a>
+            </li>
+
+            <li>
+            <a href="/users/logout">Logout</a>
+            </li>
+
+        </ul>
+
+    </div>
+
 </nav>
 
-<h1>A Cooks Companion</h1>
-<h2>Get cooking!</h2>
+<hr class="hr">
+
+<div class="index-main">
+
+    <div class="index-main-header">
+
+        <h1>A Cooks Companion</h1>
+
+        <p>Here at Cooks Companion our mission is to give home cooks the knowledge and comfort they need to make every meal memorable</p>
+
+        <h2>Get Cooking!</h2>
+
+        <a href="/recipes/all-recipes">
+
+            <p class="index-p">check out the recipes</p>
+            
+        </a>
+
+    </div>
+
+</div>
 
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>

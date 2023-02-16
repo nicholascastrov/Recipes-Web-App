@@ -41,12 +41,17 @@ res.render('recipes/create-recipes.hbs')
 })
 
 router.post('/create-recipes', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
-    const {title, cuisine, ingredients, dishType, duration, level} = req.body
+    const {title, cuisine, ingredients, dishType, duration, level, directions} = req.body
 
     const newArray = ingredients.split(",");
     const newest = newArray.map((item) => {
         return item.trim("");
-     });
+    });
+
+    const newDirectionsArray = directions.split(",");
+    const newestDirections = newDirectionsArray.map((item) => {
+        return item.trim("");
+    });
 
     Recipe.create(
     {
@@ -54,6 +59,7 @@ router.post('/create-recipes', isLoggedIn, fileUploader.single('image'), (req, r
         title,
         duration,
         ingredients: newest,
+        directions: newestDirections,
         cuisine,
         dishType,
         level,
@@ -84,12 +90,18 @@ router.get('/edit-recipes/:id', isOwner, (req, res, next) => {
 
 router.post('/edit-recipes/:id', (req, res, next) => {
 
-    const { title, cuisine, image, ingredients, dishType, duration, level } = req.body
+    const { title, cuisine, image, ingredients, dishType, duration, level, directions } = req.body
 
     const newArray = ingredients.split(",");
     const newest = newArray.map((item) => {
         return item.trim("");
-     });
+    });
+
+    const newDirectionsArray = directions.split(",");
+    const newestDirections = newDirectionsArray.map((item) => {
+        return item.trim("");
+    });
+    console.log(newestDirections)
 
     Recipe.findByIdAndUpdate(req.params.id, 
         {
@@ -97,6 +109,7 @@ router.post('/edit-recipes/:id', (req, res, next) => {
             title,
             duration,
             ingredients: newest,
+            directions: newestDirections,
             cuisine,
             dishType,
             level,

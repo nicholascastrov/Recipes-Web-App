@@ -104,7 +104,7 @@ router.post('/login', isLoggedOut, (req,res) => {
       return;
     } else if (bcryptjs.compareSync(password, user.password)) {
       req.session.user = user;
-      res.redirect('/')
+      res.redirect(`/users/my-profile/profile/${req.session.user._id}`)
     } else {
       res.render('users/login', { errorMessage: 'Password incorrect, Try Again' })
     }

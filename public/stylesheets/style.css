@@ -9,23 +9,114 @@ body {
   background-color: #dbdbdb5c;
 }
 
-.nav-div{
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-
 .hr{
   border: 5px solid green;
 }
 
-.all-recipes-nav{
+/* INDEX.hbs => NAV*/
+.index-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+/* INDEX => NAV-LEFT */
+
+.index-nav-left{
   display: flex;
   align-items: center;
-  padding: 20px;
-  width: 100vw;
+  margin-left: 10px;
+  padding: 10px;
+}
+.index-nav-left a{
+  text-decoration: none;
+  color: rgb(0, 60, 128);
+}
+
+.index-nav-left h1{
+  font-size: 45px;
+}
+
+/* INDEX => NAV-RIGHT */
+
+.index-nav-right{
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+
+.index-ul{
+  display: flex;
+  flex-direction: row;
+}
+
+.index-ul li{
+  padding: 7px;
+  list-style: none;
+}
+
+.index-ul a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 60, 128);
+}
+
+/* INDEX => MAIN */
+
+.index-main{
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.index-main-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 60, 128);
+  flex-direction: column;
+}
+
+.index-main-header h1{
+  text-decoration: underline;
+  text-decoration-color: rgb(223, 223, 39);
+  font-size: 100px;
+  padding: 10px;
+}
+
+.index-main-header p{
+  padding: 10px;
+  font-size: 25px;
+}
+
+.index-main-header h2{
+  padding: 10px;
+  font-size: 50px;
+}
+
+.index-main-header a{
+  color: green;
+}
+
+.index-p{
+  text-decoration: underline;
+  text-decoration-color: rgb(223, 223, 39);
+  font-weight: bold;
+}
+
+
+/* ALL-RECIPES.hbs => NAV*/
+
+.all-recipes-nav{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
   justify-content: space-between;
-  padding: 0;
 }
 
 .all-recipes-nav-left{
@@ -71,6 +162,7 @@ body {
   font-size: 20px;
 }
 
+/* ALL RECIPES => MAIN */
 .all-recipes-h2{
   margin: 40px;
   margin-left: 150px;
@@ -105,7 +197,135 @@ body {
   line-height: 25px;
 }
 
+
+/*  RECIPE DETAILS  */
+
+.details-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+/* DETAILS => NAV LEFT */
+
+.details-nav-left{
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  height: 5vh;
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.details-nav-left a {
+  text-decoration: none;
+  color: rgb(0, 60, 128);
+}
+
+.details-nav-left h1{
+  font-size: 45px;
+  font-family: 'Space Grotesk', sans-serif, 700;
+  color: rgb(0, 60, 128);
+}
+
+/* DETAILS => NAV RIGHT */
+
+.details-nav-right{
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.details-ul{
+  display: flex;
+  flex-direction: row;
+}
+
+.details-ul li{
+  padding: 7px;
+  list-style: none;
+}
+
+.details-ul a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 60, 128);
+}
+
+/* DETAILS => MAIN */
+
+.details-main{
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-main-box{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+}
+
+.recipe-main-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #333;
+}
+
+.recipe-main-view h1{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  font-size: 45px;
+}
+
+.recipe-main-view h2{
+  padding: 5px;
+}
+
+.recipe-main-view img{
+  padding: 15px;
+}
+
+.recipe-details-facts{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #333;
+  padding: 10px;
+  margin: 10px;
+  margin-top: 30px;
+  border: 5px solid green;
+  box-shadow: 5px 2px 5px rgba(240, 244, 4, 0.584);
+}
+
+.recipe-details-facts h4{
+font-size: 25px;
+padding: 5px;
+}
+
+.recipe-details-facts p{
+  padding: 5px;
+  font-size: 15px;
+}
+
+.recipe-details-info{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+
+
 img {
   height: 20vh;
-  /* display: flex; */
 }

@@ -6,12 +6,13 @@
         <a href="/">
 
             <h1>Cooks Companion</h1>
-            
+
         </a>
 
     </div>
 
     <div class="all-recipes-nav-right">
+
         <ul class="all-recipes-ul">
 
             <li>
@@ -23,7 +24,11 @@
             </li>
 
             <li>
+                {{#if id}}
                 <a href="/users/my-profile/profile/{{id}}">My Profile</a>
+                {{else}}
+                <a href="/users/login">My Profile</a>
+                {{/if}}
             </li>
 
         </ul>
@@ -33,14 +38,13 @@
 </nav>
 
 
-
 <hr class="hr">
 
-    <div class="all-recipes-h2">
+<div class="all-recipes-h2">
 
-        <h1>Explore Recipes</h1>
+     <h1>Explore Recipes</h1>
 
-    </div>
+</div>
 
 
 <div class="main-page-div">
