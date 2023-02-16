@@ -10,6 +10,8 @@ const saltRounds = 10;
 const Recipe = require('../models/Recipe.model')
 const User = require('../models/User.model')
 
+const { isLoggedIn, isOwner, isCommentOwner, isLoggedOut } = require('../middleware/route-guard')
+
 /* GET users listing. */
 
 router.get('/my-profile/profile/:id', (req, res, next) => {
@@ -87,7 +89,7 @@ router.get('/login', (req, res, next) => {
   res.render('users/login.hbs');
 });
 
-router.post('/login', (req,res) => {
+router.post('/login', isLoggedOut, (req,res) => {
   const {email, password} = req.body
 
   if(!email || !password) {

@@ -1,8 +1,111 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+body {
+  width: 100vw;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #dbdbdb5c;
+}
+
+.nav-div{
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.hr{
+  border: 5px solid green;
+}
+
+.all-recipes-nav{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.all-recipes-nav-left{
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  height: 5vh;
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.all-recipes-nav-left h1{
+  font-size: 45px;
+  font-family: 'Space Grotesk', sans-serif, 700;
+  color: rgb(0, 60, 128);
+}
+
+.all-recipes-nav-left a{
+  text-decoration: none;
+}
+
+.all-recipes-nav-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 30vw;
+}
+
+.all-recipes-ul{
+  display: flex;
+  width: 17vw;
+}
+
+.all-recipes-nav-right li{
+  display: flex;
+  list-style: none;
+  padding: 15px;
+}
+
+.all-recipes-nav-right a {
+  color: rgb(0, 60, 128);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.all-recipes-h2{
+  margin: 40px;
+  margin-left: 150px;
+  margin-top: 100px;
+  color: rgb(0, 60, 128);
+}
+
+.main-page-div{
+  display: flex;
+  height: 1000px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  margin: 30px;
+  padding: 30px;
+}
+
+.main-rows{
+  padding: 50px;
+  margin: 20px;
+}
+
+.main-rows h3{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: #333;
+}
+
+.main-rows a{
+  text-decoration: none;
+  color: #333;
+  line-height: 25px;
+}
+
+img {
+  height: 20vh;
+  /* display: flex; */
 }
