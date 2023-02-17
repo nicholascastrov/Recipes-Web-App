@@ -23,6 +23,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + "/views/partials");
 
 app.set('trust-proxy', 1);
+app.enable('trust proxy');
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -89,7 +89,7 @@ router.get('/login', (req, res, next) => {
   res.render('users/login.hbs');
 });
 
-router.post('/login', isLoggedOut, (req,res) => {
+router.post('/login', (req,res) => {
   const {email, password} = req.body
 
   if(!email || !password) {

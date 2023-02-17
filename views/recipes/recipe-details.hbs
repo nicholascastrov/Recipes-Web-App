@@ -43,7 +43,7 @@
 
         </div>
 
-        <hr>
+        <hr class="hr-details">
 
         <div class="recipe-details-facts">
 
@@ -68,6 +68,7 @@
             <div class="recipe-details-ingredients">
 
                 <b>Ingredients:</b> 
+                <hr class="hr-details">
                 <ul> 
                     {{#each ingredients}}
                     <li>
@@ -80,7 +81,8 @@
 
             <div class="recipe-details-directions">
 
-                <b>Directions:</b> 
+                <b>Directions:</b>
+                <hr class="hr-details">
                 <ol> 
                     {{#each directions}}
                     <li>
@@ -94,7 +96,7 @@
 
         </div>
 
-        <hr>
+        <hr class="hr-details">
 
         <div class="details-comment-form">
 
@@ -102,8 +104,8 @@
 
                 <div class="details-comment-box">
 
-                    <label for="">New Comment</label>
-                    <input type="text" name="comment">
+                    <label for="" class="review">Leave a Review</label>
+                    <input type="text" class="comment-box" name="comment">
 
                 </div>
 
@@ -126,13 +128,13 @@
 
                     {{#each comments}}
 
-                        <div class="each-comment-list">
+                        <div>
 
-                            <li>
+                            <li class="each-comment-list">
+                                <hr class="hr-comments">
                                 <p>{{comment}}</p>
                                 <h6>{{user}}</h6>
                                 <a href="/recipes/delete-comment/{{_id}}">Delete</a>
-                                <hr>
                             </li>
 
                         </div>
@@ -145,13 +147,15 @@
 
                 <div class="no-comment-view">
 
-                    <p>No Reviews yet</p>
+                    <p>no reviews yet</p>
 
                 </div>
 
             {{/if}}
         
         </div>
+
+        <hr class="hr-details">
 
         <div class="recipe-details-links">
 

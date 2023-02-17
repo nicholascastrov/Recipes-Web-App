@@ -1,53 +1,90 @@
-<nav>
-    <a href="/recipes/all-recipes">Back</a>
+<nav class="create-recipes-nav">
+
+    <div class="create-recipes-nav-left">
+
+        <a href="/">
+
+            <h1>Cooks Companion</h1>
+
+        </a>
+
+    </div>
+
+    <div class="create-recipes-nav-right">
+
+        <ul class="create-recipes-ul">
+
+            <li>
+
+                <a href="/recipes/all-recipes">Back</a>
+
+            </li>
+
+        </ul>
+
+
+    </div>
+
 </nav>
-<h2>Add New Recipe</h2>
 
-<form action="/recipes/create-recipes" method="POST" enctype="multipart/form-data">
+<hr class="hr">
 
-<label for="">Title</label>
-<input type="text" name="title">
+    
+<div class="create-recipes-main">
+    
+    <div class="create-recipes-main-box">
 
-<label for="">Ingredients</label>
-<input type="text" name="ingredients">
+        <h2>Add New Recipe</h2>
 
-<label for="">Directions</label>
-<input type="text" name="directions">
+    </div>
+    
 
-<label for="">Image</label>
-<input type="file" name="image">
+    <form class="create-recipe-form" action="/recipes/create-recipes" method="POST" enctype="multipart/form-data">
 
-<label for="">Cuisine</label>
-<input type="text" name="cuisine">
+        <label for="">Title</label>
+        <input type="text" name="title">
 
-<label for="">Dish Type:</label>
-    <select type="text" name="dishType">
-        <option value='breakfast'>Breakfast</option>
-        <option value='main_course'>Main Course</option>
-        <option value='soup'>Soup</option>
-        <option value='snack'>Snack</option>
-        <option value='drink'>Drink</option>
-        <option value='dessert'>Dessert</option>
-        <option value='other'>Other</option>
-    </select>
+        <label for="">Ingredients</label>
+        <input type="text" name="ingredients">
 
-<label for="">Duration</label>
-<input type="text" name="duration">
+        <label for="">Directions</label>
+        <input type="text" name="directions">
 
-<label for="">Level</label>
-    <select type="text" name="level">
-        <option value='Easy Peasy'>Easy</option>
-        <option value='Amateur Chef'>Amateur</option>
-        <option value='UltraPro Chef'>Pro</option>
-    </select>
+        <label for="">Image</label>
+        <input type="file" name="image">
+
+        <label for="">Cuisine</label>
+        <input type="text" name="cuisine">
+
+        <label for="">Dish Type:</label>
+
+            <select type="text" name="dishType">
+
+                <option value='breakfast'>Breakfast</option>
+                <option value='main_course'>Main Course</option>
+                <option value='soup'>Soup</option>
+                <option value='snack'>Snack</option>
+                <option value='drink'>Drink</option>
+                <option value='dessert'>Dessert</option>
+                <option value='other'>Other</option>
+
+            </select>
+
+        <label for="">Duration</label>
+        <input type="text" name="duration">
+
+        <label for="">Level</label>
+
+            <select type="text" name="level">
+
+                <option value='Easy Peasy'>Easy</option>
+                <option value='Amateur Chef'>Amateur</option>
+                <option value='UltraPro Chef'>Pro</option>
+
+            </select>
 
 
-<button type="submit">Add Recipe</button> 
+        <button type="submit">Add Recipe</button> 
 
-</form> 
-
-{{!-- level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']}, --}}
-{{!-- const {title, image, ingredients, cuisine, dishType, duration, creator} = req.body --}}
-
-{{!-- 
-'breakfast', 'main_course', 'soup', 'snack', 'drink', 'dessert', 'other' --}}
+    </form> 
+</div>

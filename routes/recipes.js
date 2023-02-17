@@ -44,6 +44,7 @@ router.post('/create-recipes', isLoggedIn, fileUploader.single('image'), (req, r
     const {title, cuisine, ingredients, dishType, duration, level, directions} = req.body
 
     const newArray = ingredients.split(",");
+    console.log(newArray)
     const newest = newArray.map((item) => {
         return item.trim("");
     });
@@ -88,9 +89,9 @@ router.get('/edit-recipes/:id', isOwner, (req, res, next) => {
 })
 
 
-router.post('/edit-recipes/:id', (req, res, next) => {
+router.post('/edit-recipes/:id', fileUploader.single('image'), (req, res, next) => {
 
-    const { title, cuisine, image, ingredients, dishType, duration, level, directions } = req.body
+    const { title, cuisine, ingredients, dishType, duration, level, directions } = req.body
 
     const newArray = ingredients.split(",");
     const newest = newArray.map((item) => {
@@ -105,7 +106,7 @@ router.post('/edit-recipes/:id', (req, res, next) => {
 
     Recipe.findByIdAndUpdate(req.params.id, 
         {
-            image,
+            image: req.file.path,
             title,
             duration,
             ingredients: newest,
@@ -117,7 +118,7 @@ router.post('/edit-recipes/:id', (req, res, next) => {
         {new: true})
     .then((updatedRecipe) => {
         console.log(updatedRecipe)
-        res.redirect(`/recipes/recipe-details/${req.params.id}`)
+        res.redirect(`/recipes/recipe-details/${updatedRecipe._id}`)
     })
     .catch((err) => {
         console.log(err)

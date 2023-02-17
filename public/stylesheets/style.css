@@ -4,12 +4,13 @@
 }
 
 body {
-  width: 100vw;
+  width: 98vw;
   font-family: 'Space Grotesk', sans-serif;
   background-color: #dbdbdb5c;
 }
 
 .hr{
+  width: 100vw;
   border: 5px solid green;
 }
 
@@ -19,7 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  width: 100%;
+  width: 99vw;
   padding: 10px;
 }
 
@@ -115,14 +116,13 @@ body {
   background-color: white;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 99vw;
   justify-content: space-between;
 }
 
 .all-recipes-nav-left{
   display: flex;
   align-items: center;
-  width: 20vw;
   height: 5vh;
   padding: 15px;
   margin-left: 10px;
@@ -164,6 +164,7 @@ body {
 
 /* ALL RECIPES => MAIN */
 .all-recipes-h2{
+  font-size: 30px;
   margin: 40px;
   margin-left: 150px;
   margin-top: 100px;
@@ -239,6 +240,11 @@ body {
   margin-right: 30px;
 }
 
+.details-nav-right a{
+  text-decoration: none;
+  font-size: 30px;
+}
+
 .details-ul{
   display: flex;
   flex-direction: row;
@@ -258,7 +264,7 @@ body {
 /* DETAILS => MAIN */
 
 .details-main{
-  height: 1000px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -281,6 +287,7 @@ body {
 }
 
 .recipe-main-view h1{
+  color: rgb(0, 60, 128);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -309,8 +316,9 @@ body {
 }
 
 .recipe-details-facts h4{
-font-size: 25px;
-padding: 5px;
+  color: rgb(0, 60, 128);
+  font-size: 25px;
+  padding: 5px;
 }
 
 .recipe-details-facts p{
@@ -322,10 +330,284 @@ padding: 5px;
   display: flex;
   flex-direction: column;
   color: #333;
+  margin: 15px;
+}
+
+.recipe-details-ingredients{
+  margin: 10px;
+}
+
+.recipe-details-ingredients b{
+  color: rgb(0, 60, 128);
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.hr-details{
+  margin-top: 10px;
+  border: 3px solid #333;
+}
+
+.recipe-details-ingredients ul{
+  margin-top: 10px;
+  list-style: none;
+}
+.recipe-details-ingredients li{
+  padding: 10px;
+  list-style: none;
+}
+
+.recipe-details-directions{
+  margin: 15px;
+}
+
+.recipe-details-directions b{
+  color: rgb(0, 60, 128);
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.recipe-details-directions ol{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.recipe-details-directions li{
+  padding: 10px;
+}
+
+.details-comment-form{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.details-comment-form form{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-comment-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.review{
+  display: flex;
+  margin: 10px;
+  color: #333;
+  font-size: 25px;
+}
+
+.comment-box{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comment-btn{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.comment-btn button{
+  margin: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: rgba(159, 159, 159, 0.287);
+  border: black;
+  color: #333;
+  padding: 12px 24px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.details-comment-section{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.hr-comments{
+  border: 1px solid #333;
+}
+
+.all-comments{
+  list-style-type: "-";
+  color: #333;
+}
+
+.each-comment-list p{
+  color: #333;
+  display: flex;
+  margin: 15px;
+}
+
+.each-comment-list h6{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 15px;
+}
+
+.each-comment-list a{
+  text-decoration: none;
+  color: #333;
+}
+
+.recipe-details-links{
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
+  padding: 20px;
+}
+
+.recipe-details-links a{
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(0, 60, 128);
+  margin: 10px;
+  padding: 10px;
+}
+
+
+
+
+/* CREATE-RECIPES */
+
+.create-recipes-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+/* CREATE-RECIPES => NAV-LEFT */
+
+.create-recipes-nav-left{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.create-recipes-nav-left a{
+  text-decoration: none;
+  color: rgb(0, 60, 128);
+}
+
+.create-recipes-nav-left h1{
+  font-size: 45px;
+}
+
+/* CLASS-RECIPES => NAV-RIGHT */
+
+.create-recipes-nav-right{
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+
+.create-recipes-ul{
+  display: flex;
+  flex-direction: row;
+}
+
+.create-recipes-ul li{
+  padding: 7px;
+  list-style: none;
+}
+
+.create-recipes-ul a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 60, 128);
+}
+
+
+/* CREATE-RECIPES => MAIN */
+.create-recipes-main{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.create-recipes-main-box h2{
+  font-size: 50px;
+  margin: 40px;
+  color: rgb(0, 60, 128);
+}
+
+.create-recipe-form{
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+.create-recipe-form label{
+  font-size: 25px;
+  padding: 10px;
+}
+
+.create-recipe-form input{
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.duration-box{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;}
+
+.create-recipe-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;;
+}
+
+.create-recipe-form button{
+  margin: 30px;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: rgba(159, 159, 159, 0.287);
+  border: black;
+  color: #333;
+  padding: 12px 24px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 
 
 img {
-  height: 20vh;
+  height: 50vh;
 }
