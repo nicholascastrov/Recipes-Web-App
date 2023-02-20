@@ -1,30 +1,57 @@
-<nav class="">
-    <a href="/recipes/all-recipes">Recipes</a>
-    <a href="/recipes/create-recipes">Create a Recipe</a>
+<nav class="profile-nav">
+
+    <div class="profile-nav-left">
+         <a href="/">
+
+            <ul class="profile-ul">
+
+                <li>
+
+                    <h1>Cooks Companion</h1>
+
+                </li>
+
+            </ul>
+
+        </a>
+    </div>
+
+    <div class="profile-nav-right">
+        <a href="/recipes/all-recipes">Recipes</a>
+        <a href="/recipes/create-recipes">Create a Recipe</a>
+    </div>
 </nav>
 
-<h1>Profile</h1>
+<hr class="hr">
 
-{{#each foundRecipes}}
-<h2>{{creator}}</h2>
+<div class="profile-main-div">
 
-<h3>{{title}}</h3>
-<img src="{{image}}" alt="{{title}}">
-<a href="/recipes/recipe-details/{{_id}}">Details</a>
+    <h1>Profile</h1>
 
-<p>By: {{creator}}</p>
+    {{#each foundRecipes}}
+    <h2>{{creator}}</h2>
 
-{{/each}}
+    <h3>{{title}}</h3>
+    <a href="/recipes/recipe-details/{{_id}}">
+    <img src="{{image}}" alt="{{title}}">
+    </a>
+    <a href="/recipes/recipe-details/{{_id}}">Details</a>
 
+    <p>By: {{creator}}</p>
 
-{{#each recipes}}
-
-<h3>{{title}}</h3>
-<img src="{{image}}" alt="{{title}}">
-<a href="/recipes/recipe-details/{{_id}}">Details</a>
-
-<p>By: {{creator}}</p>
+    {{/each}}
 
 
+    {{#each recipes}}
 
-{{/each}}
+    <h3>{{title}}</h3>
+    <img src="{{image}}" alt="{{title}}">
+    <a href="/recipes/recipe-details/{{_id}}">Details</a>
+
+    <p>By: {{creator}}</p>
+
+
+
+    {{/each}}
+
+</div>

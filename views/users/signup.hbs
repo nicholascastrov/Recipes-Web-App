@@ -1,22 +1,53 @@
-<h2>Sign Up</h2>
+<nav class="signup-nav">
 
-<form action="/users/signup"  method="POST">
+    <div class="signup-nav-left">
 
-    <label for="">Username</label>
-    <input type="text" name="username">
+         <a href="/">
 
-    <label for="">Email</label>
-    <input type="email" name="email">
+            <ul class="signup-ul">
 
-    <label for="">Password</label>
-    <input type="password" name="password">
+                <li>
 
-    <button type="submit">Create Account</button>
+                    <h1>Cooks Companion</h1>
 
-</form>
+                </li>
 
-{{#if errorMessage}}
+            </ul>
 
-    <p>{{errorMessage}}</p>
+        </a>
+    </div>
 
-{{/if}}
+    <div class="signup-nav-right">
+        <a href="/recipes/all-recipes">Recipes</a>
+        <a href="/recipes/create-recipes">Create a Recipe</a>
+    </div>
+</nav>
+
+<hr class="hr">
+
+<div class="signup-main-div">
+
+    <h2>Sign Up</h2>
+
+    <form action="/users/signup"  method="POST">
+
+        <label for="">Username</label>
+        <input type="text" name="username">
+
+        <label for="">Email</label>
+        <input type="email" name="email">
+
+        <label for="">Password</label>
+        <input type="password" name="password">
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+    {{#if errorMessage}}
+
+        <p>{{errorMessage}}</p>
+
+    {{/if}}
+
+</div>

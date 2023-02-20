@@ -606,6 +606,99 @@ body {
   cursor: pointer;
 }
 
+.profile-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.profile-nav a {
+  margin: 10px;
+  text-decoration: none;
+}
+
+.profile-ul{
+  list-style: none;
+}
+
+.profile-main-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.signup-nav a {
+  margin: 10px;
+  text-decoration: none;
+}
+
+.signup-ul{
+  list-style: none;
+}
+
+.signup-main-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-main-div form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+}
+
+.login-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.login-nav a {
+  margin: 10px;
+  text-decoration: none;
+}
+
+.login-ul{
+  list-style: none;
+}
+
+.login-main-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-main-div form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+}
+
+
+
 
 
 img {

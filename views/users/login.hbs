@@ -1,22 +1,49 @@
-<nav>
-    <a href="/recipes/all-recipes">Recipes</a>
-    <a href="/">Home</a>
+<nav class="login-nav">
+
+        <div class="login-nav-left">
+
+         <a href="/">
+
+            <ul class="login-ul">
+
+                <li>
+
+                    <h1>Cooks Companion</h1>
+
+                </li>
+
+            </ul>
+
+        </a>
+    </div>
+
+    <div class="login-nav-right">
+        <a href="/recipes/all-recipes">Recipes</a>
+        <a href="/">Home</a>
+    </div>
 </nav>
 
-<h2>Login</h2>
+<hr class="hr">
 
-<form action="/users/login" method="post">
 
-<label for="">Email</label>
-<input type="email" name="email">
+<div class="login-main-div">
 
-<label for="">Password</label>
-<input type="password" name="password">
+    <h2>Login</h2>
 
-<button type="submit">Login</button>
+    <form action="/users/login" method="post">
 
-{{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-{{/if}}
+    <label for="">Email</label>
+    <input type="email" name="email">
 
-</form>
+    <label for="">Password</label>
+    <input type="password" name="password">
+
+    <button type="submit">Login</button>
+
+    {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+    </form>
+
+</div>
